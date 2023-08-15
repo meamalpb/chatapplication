@@ -1,6 +1,6 @@
 import consumer from "channels/consumer"
 
-consumer.subscriptions.create({channel: "MainChannel",main_id: 0}, {
+consumer.subscriptions.create({channel: "MainChannel",main_id: 1}, {
   connected() {
     // Called when the subscription is ready for use on the server
     console.log("connected to main channel")
