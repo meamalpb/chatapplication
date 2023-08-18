@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+ .message-box {
+    border-radius: 10px;
+  }
+  .sent {
+    background-color: #4CAF50;
+    color: white;
+    margin-left: auto;
+  }
+  .received {
+    background-color: #ECECEC;
+  }

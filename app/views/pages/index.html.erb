@@ -1,66 +1,24 @@
-<style>
-    .message-box {
-      border-radius: 10px;
-    }
-    .sent {
-      background-color: #4CAF50;
-      color: white;
-      margin-left: auto;
-    }
-    .received {
-      background-color: #ECECEC;
-    }
-  </style>
 <div class="grid grid-cols-2">
-<% if user_signed_in?%>
-<div class="col-span-1">
- Ongoing Chats
-</div>
-<div id= "this" class="col-span-1 bg-blue-500 h-480 max-h-480 overflow-auto px-2">
-    <div id="chat-content">
-        <div class=" items-center justify-center">
-            <div class=" p-4">
-              <div class="flex justify-end mb-4">
-                <div class="message-box sent p-2">
-                  <p class="text-sm">Sent message here</p>
-                </div>
-              </div>
-              <div class="flex justify-start mb-4">
-                <div class="message-box received p-2">
-                  <p class="text-sm">Received message here</p>
-                </div>
-              </div>
-              <div class="flex justify-end mb-4">
-                <div class="message-box sent p-2">
-                  <p class="text-sm">Another sent message</p>
-                </div>
-              </div>
-              <div class="flex justify-start mb-4">
-                <div class="message-box received p-2">
-                  <p class="text-sm">Another received message</p>
-                </div>
-              </div>
-            </div>
-          </div>     
+  <% if user_signed_in? %>
+    <div class="col-span-1">
+      Ongoing Chats
+      <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "bg-gray-500 hover:bg-gray-700 text-white font-bold py-1 px-1 rounded" %>
+
     </div>
+    <div id="this" class="col-span-1 bg-blue-500 h-48 max-h-48 overflow-auto px-2">
+      <div id="chat-content">
+        <!-- Chat messages will be added here dynamically -->
+        <%= render "msg" %>
+      </div>
+    </div>
+    <% else %>
+      <div class="col-span-1">
+        <span>Log in here!</span>
+        <br><br>
+        <button class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-1 px-1 rounded">
+          <%= link_to "Log in" , new_user_session_url %>
+        </button>
+        <div data-main-id="1"></div>
+      </div>
+      <% end %>
 </div>
-<%else%>
-<div class="col-span-1">
-<span>Log in here!</span>
-<br><br>    
-<button class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-1 px-1 rounded">
-    <%= link_to  "Log in", new_user_session_url %></button>
-
-<div data-main-id = 1></div>
-</div>
-<% end%>
-</div>
-
-
-<script>
-    // JavaScript code to scroll the chat content to the bottom when the page loads
-    document.addEventListener("DOMContentLoaded", function() {
-      var chatContent = document.getElementById("this");
-      chatContent.scrollTop = chatContent.scrollHeight;
-    });
-  </script>

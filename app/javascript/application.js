@@ -2,3 +2,9 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 import "channels"
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    var chatContent = document.getElementById("this");
+    chatContent.scrollTop = chatContent.scrollHeight;
+  });
