@@ -20,6 +20,7 @@ class RoomController < ApplicationController
     def create_message
         @message = Message.create(msg_params)
         if @message.save 
+            ActionCable.server.broadcast "message_channel_#{@message.room_id}", {message: @message , user: User.find(@message.author_id)}
             p 'phew 😄 😀 😃 😁 😆'  
         else 
             p '🤐 🤨 😐 😑 😶'
