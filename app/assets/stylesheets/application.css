@@ -12,15 +12,31 @@
  *
  *= require_tree .
  *= require_self
- */
- .message-box {
-    border-radius: 10px;
-  }
-  .sent {
+ */        .message-box {
+  border-radius: 10px;
+}
+
+.sent {
     background-color: #4CAF50;
     color: white;
     margin-left: auto;
-  }
-  .received {
+}
+
+.received {
     background-color: #ECECEC;
+}
+
+.author {
+    color: grey;
+}
+
+form input[type="submit"] {
+    /* Your styling here */
+    margin-top: 10px;
+    background-color:lightslategrey;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
   }

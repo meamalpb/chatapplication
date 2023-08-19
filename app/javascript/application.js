@@ -4,7 +4,7 @@ import "controllers"
 import "channels"
 
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("turbo:load", function() {
     var chatContent = document.getElementById("this");
     chatContent.scrollTop = chatContent.scrollHeight;
   });

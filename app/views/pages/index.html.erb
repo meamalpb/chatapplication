@@ -1,24 +1,24 @@
 <div class="grid grid-cols-2">
   <% if user_signed_in? %>
     <div class="col-span-1">
-      Ongoing Chats
-      <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "bg-gray-500 hover:bg-gray-700 text-white font-bold py-1 px-1 rounded" %>
+      <% if params[:room_id].present? && @croom.present?%>
+        <h1> <%= @croom.name%> Room</h1>
+        <% end %>
 
+      <%= render partial: 'room_form' , locals: { room: @room } %>
+      <%= render partial: 'room_list' , locals: { rooms: @rooms } %>
+        <%= button_to "Log out" , destroy_user_session_path, method: :delete,class: "bg-gray-500 hover:bg-gray-700 text-white font-bold py-1 px-1 rounded" %>
     </div>
-    <div id="this" class="col-span-1 bg-blue-500 h-48 max-h-48 overflow-auto px-2">
+    <div id="this" class="col-span-1 h-70 max-h-70 overflow-auto px-2">
       <div id="chat-content">
+        <% if params[:room_id].present? && @croom.present? %>
+        <%= render partial: 'msg' , locals: {message: @message} %>
+        <% end %>
         <!-- Chat messages will be added here dynamically -->
-        <%= render "msg" %>
+        
       </div>
     </div>
     <% else %>
-      <div class="col-span-1">
-        <span>Log in here!</span>
-        <br><br>
-        <button class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-1 px-1 rounded">
-          <%= link_to "Log in" , new_user_session_url %>
-        </button>
-        <div data-main-id="1"></div>
-      </div>
-      <% end %>
+      <%= render 'loggedout' %>
+        <% end %>
 </div>

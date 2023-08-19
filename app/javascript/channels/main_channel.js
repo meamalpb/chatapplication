@@ -13,7 +13,7 @@ document.addEventListener("turbo:load", ()=> {
 
 
 
-consumer.subscriptions.create({channel: "MainChannel",main_id: 1, token: cid , uid: uid}, {
+consumer.subscriptions.create({channel: "MainChannel",token: cid , uid: uid}, {
   connected() {
     // Called when the subscription is ready for use on the server
     console.log("connected to main channel")
