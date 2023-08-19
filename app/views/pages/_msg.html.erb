@@ -1,45 +1,20 @@
 
-<div class="flex justify-end mb-4">
-  <div class="message-box sent p-2">
-      <p class="text-xs">I sent message</p>
+<% messages.includes(:author).each do |message|%>
+<% if message.author_id == current_user.id %>
+  <div class="flex justify-end mb-4">
+    <div class="message-box sent p-2">
+      <p class="text-xs"><%= message.content %></p>
   </div>
 </div>
-
+<%else%>
 <div class="flex justify-start mb-4">
   <div class="message-container">
-    <p class="author text-sm text-gray-500 pl-6">Jane Smith</p>
+    <p class="author text-sm text-gray-500 pl-6"><%= message.author.username %></p>
   <div class="message-box received p-2">
-      <p class="text-xs">Another received message</p>
+      <p class="text-xs"><%= message.content %></p>
   </div>
 </div>
 </div>
 
-<div class="flex justify-end mb-4">
-  <div class="message-box sent p-2">
-      <p class="text-xs">Another sent message</p>
-  </div>
-</div>
-
-<div class="flex justify-start mb-4">
-  <div class="message-container">
-    <p class="author text-sm text-gray-500 pl-6">John doe</p>
-  <div class="message-box received p-2">
-      <p class="text-xs">Another received message</p>
-  </div>
-</div>
-</div>
-
-<div class="flex justify-end mb-4">
-  <div class="message-box sent p-2">
-      <p class="text-xs"> sent message</p>
-  </div>
-</div><div class="flex justify-end mb-4">
-  <div class="message-box sent p-2">
-      <p class="text-xs"> sent message</p>
-  </div>
-</div><div class="flex justify-end mb-4">
-  <div class="message-box sent p-2">
-      <p class="text-xs"> sent message</p>
-  </div>
-</div>
-<br>
+<%end%>
+<% end  %>
