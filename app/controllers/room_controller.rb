@@ -3,6 +3,7 @@ class RoomController < ApplicationController
         p params
         @room = Room.create(room_params)
         if @room.save
+            ActionCable.server.broadcast "main_channel", {room: @room}
             p @room 
         else
             p "Failure"

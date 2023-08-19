@@ -1,6 +1,5 @@
 class PagesController < ApplicationController
   def index
-    puts params
     @room = Room.new
     @rooms = Room.all
     if params[:room_id].present? 
@@ -8,7 +7,7 @@ class PagesController < ApplicationController
       if Room.exists?(@id)
         @croom = Room.find(@id)
         @messages = Room.find(@id).messages
-        @message = Message.new(author_id: current_user.id, room_id: @id)
+        @message = Message.new
       end
     end
   end

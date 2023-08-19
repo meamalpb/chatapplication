@@ -1,5 +1,6 @@
 Rooms
+<div id="room-list">
 <% rooms.each do |room|%>
-
   <p><%= link_to room.name , room_show_url(room.id) %></p>
   <%end%>
+</div>

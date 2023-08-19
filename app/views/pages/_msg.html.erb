@@ -33,15 +33,13 @@
   <div class="message-box sent p-2">
       <p class="text-xs"> sent message</p>
   </div>
+</div><div class="flex justify-end mb-4">
+  <div class="message-box sent p-2">
+      <p class="text-xs"> sent message</p>
+  </div>
+</div><div class="flex justify-end mb-4">
+  <div class="message-box sent p-2">
+      <p class="text-xs"> sent message</p>
+  </div>
 </div>
-
-<%p message%>
-
-<%= form_with model: message do |form| %>
-
-<%= form.hidden_field :room_id, value: @croom.id if @croom %>
-<%= form.hidden_field :author_id, value: @current_user.id %>
-<%= form.text_field :content %>
-<%= form.submit %>
-<%end %>
 <br>

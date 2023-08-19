@@ -40,3 +40,8 @@ form input[type="submit"] {
     border-radius: 10px;
     cursor: pointer;
   }
+
+  .chat-main{
+    height: 85vh;
+    max-height: 85vh;
+  }

@@ -1,4 +1,4 @@
-<div class="grid grid-cols-2">
+<div id="main-header" class="grid grid-cols-2" data-room-id= <%= params[:room_id] || 0 %> >
   <% if user_signed_in? %>
     <div class="col-span-1">
       <% if params[:room_id].present? && @croom.present?%>
@@ -9,15 +9,17 @@
       <%= render partial: 'room_list' , locals: { rooms: @rooms } %>
         <%= button_to "Log out" , destroy_user_session_path, method: :delete,class: "bg-gray-500 hover:bg-gray-700 text-white font-bold py-1 px-1 rounded" %>
     </div>
-    <div id="this" class="col-span-1 h-70 max-h-70 overflow-auto px-2">
+    <div class="col-span-1">
+  <div id="this" class=" chat-main   overflow-auto px-2">
       <div id="chat-content">
         <% if params[:room_id].present? && @croom.present? %>
-        <%= render partial: 'msg' , locals: {message: @message} %>
-        <% end %>
-        <!-- Chat messages will be added here dynamically -->
-        
+        <%= render partial: 'msg' , locals: {messages: @messages} %>
+        <% end %> 
       </div>
     </div>
+
+    <%= render partial: 'msg_form' , locals: {message: @message} %>
+  </div>
     <% else %>
       <%= render 'loggedout' %>
         <% end %>
