@@ -1,6 +1,12 @@
 Rooms
-<div id="room-list">
+<br>
+<div >
 <% rooms.each do |room|%>
-  <p><%= link_to room.name , room_show_url(room.id) %></p>
+<div class="group">
+  <ul id="room-list">
+    <li><p class="text-gray-500 group-hover:text-red-500"><%= link_to room.name , room_show_url(room.id) %></p></li>
+  </ul> 
+</div>
   <%end%>
 </div>
+<br>

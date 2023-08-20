@@ -28,7 +28,7 @@ consumer.subscriptions.create({channel: "MainChannel",token: cid , uid: uid}, {
     // Called when there's incoming data on the websocket for this channel
     //Add room realtime
     const room_list = document.getElementById("room-list")
-    room_list.innerHTML += '<p><a href="http://localhost:3000/' + data.room.id + '">'+data.room.name+'</a></p>';
+    room_list.innerHTML += '<li><p><a href="http://localhost:3000/' + data.room.id + '">'+data.room.name+'</a></p></li>';
     console.log(data)
   }
 });
