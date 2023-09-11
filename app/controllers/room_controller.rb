@@ -21,9 +21,9 @@ class RoomController < ApplicationController
         @message = Message.create(msg_params)
         if @message.save 
             ActionCable.server.broadcast "message_channel_#{@message.room_id}", {message: @message , user: User.find(@message.author_id)}
-            p 'phew 😄 😀 😃 😁 😆'  
+            p 'Works'  
         else 
-            p '🤐 🤨 😐 😑 😶'
+            p 'doesnt not work'
         end
     end
 
