@@ -38,3 +38,4 @@
 !/app/assets/builds/.keep
 !/app/assets/builds/tailwind.css
 .env
+dump.rdb
